@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{557ACE88-A58E-48AB-B7CF-07925CA98530}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PA.Plugin</RootNamespace>
+    <AssemblyName>PA.Plugin</AssemblyName>
+    <SignAssembly>false</SignAssembly>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>true</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>true</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition">
+      <HintPath>..\packages\System.ComponentModel.Composition.2010.2.11.1\lib\net35\System.ComponentModel.Composition.dll</HintPath>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\PluginCategoryAttribute.cs" />
+    <Compile Include="Attributes\PluginDescriptionAttribute.cs" />
+    <Compile Include="Configuration\Attributes\UriHandlerAttribute.cs" />
+    <Compile Include="Configuration\IUriHandler.cs" />
+    <Compile Include="Event\PluginItemEventArgs.cs" />
+    <Compile Include="Interfaces\IPluginHandler.cs" />
+    <Compile Include="Interfaces\IPluginAction.cs" />
+    <Compile Include="Interfaces\IPluginHelper.cs" />
+    <Compile Include="Interfaces\IPluginOperation.cs" />
+    <Compile Include="Interfaces\IPluginRunner.cs" />
+    <Compile Include="Interfaces\IPluginSource.cs" />
+    <Compile Include="PluginBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IPlugin.cs" />
+    <Compile Include="PluginBase.Designer.cs">
+      <DependentUpon>PluginBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PluginInstances.cs" />
+    <Compile Include="PluginRunner.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PluginRunner.Designer.cs">
+      <DependentUpon>PluginRunner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PluginHost.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PluginHost.Designer.cs">
+      <DependentUpon>PluginHost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PluginItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Configuration\UriHandlerExportProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PluginBase.resx">
+      <DependentUpon>PluginBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PluginHost.resx">
+      <DependentUpon>PluginHost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PluginRunner.resx">
+      <DependentUpon>PluginRunner.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PA.Plugin.nuspec" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PA.Configuration\PA.Configuration.csproj">
+      <Project>{40fa1f2a-3b4e-470b-87ca-d8b3792f3e8a}</Project>
+      <Name>PA.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PA.Converters\PA.Converters.csproj">
+      <Project>{b09f91a1-df25-4dae-8e45-40df0fa9334f}</Project>
+      <Name>PA.Converters</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties BuildVersion_UseGlobalSettings="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+</Project>

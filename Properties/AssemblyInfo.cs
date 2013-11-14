@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("PA.Plugin")]
-[assembly: AssemblyDescription("Configurable Plugin Handler")]
+[assembly: AssemblyDescription("MEF Utilities for efficient plugin handling")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Thomas GERVAIS")]
 [assembly: AssemblyProduct("PA.Toolbox")]
@@ -30,4 +30,4 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.1.*")]

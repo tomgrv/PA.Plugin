@@ -6,8 +6,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using PA.Plugin;
 
-namespace PA.Plugin
+namespace PA.Components
 {
     public partial class PluginRunner : Component
     {

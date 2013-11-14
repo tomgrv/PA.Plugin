@@ -5,10 +5,10 @@ using System.Reflection;
 using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition;
 
-namespace PA
+namespace PA.Components
 {
 
-    public partial class PluginHost
+    public partial class PluginLoader
     {
         /// <summary>
         /// Required designer variable.

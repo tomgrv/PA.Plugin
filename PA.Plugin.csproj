@@ -99,47 +99,36 @@
   <ItemGroup>
     <Compile Include="Attributes\PluginCategoryAttribute.cs" />
     <Compile Include="Attributes\PluginDescriptionAttribute.cs" />
+    <Compile Include="Components\PluginLoader.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\PluginLoader.Designer.cs">
+      <DependentUpon>PluginLoader.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configuration\Attributes\UriHandlerAttribute.cs" />
-    <Compile Include="Configuration\IUriHandler.cs" />
+    <Compile Include="Configuration\Catalogs.cs" />
+    <Compile Include="Configuration\CompositionConfigurator.cs" />
+    <Compile Include="Configuration\ExportProviders\UriHandlerExportProvider.cs" />
+    <Compile Include="Configuration\Interfaces\IUriHandler.cs" />
     <Compile Include="Event\PluginItemEventArgs.cs" />
-    <Compile Include="Interfaces\IPluginHandler.cs" />
+    <Compile Include="Core\PluginManager.cs" />
+    <Compile Include="Extensions\PluginExtensions.cs" />
     <Compile Include="Interfaces\IPluginAction.cs" />
-    <Compile Include="Interfaces\IPluginHelper.cs" />
-    <Compile Include="Interfaces\IPluginOperation.cs" />
-    <Compile Include="Interfaces\IPluginRunner.cs" />
-    <Compile Include="Interfaces\IPluginSource.cs" />
-    <Compile Include="PluginBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Interfaces\IPlugin.cs" />
-    <Compile Include="PluginBase.Designer.cs">
-      <DependentUpon>PluginBase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PluginInstances.cs" />
-    <Compile Include="PluginRunner.cs">
+    <Compile Include="Components\PluginRunner.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="PluginRunner.Designer.cs">
+    <Compile Include="Components\PluginRunner.Designer.cs">
       <DependentUpon>PluginRunner.cs</DependentUpon>
     </Compile>
-    <Compile Include="PluginHost.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="PluginHost.Designer.cs">
-      <DependentUpon>PluginHost.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PluginItem.cs" />
+    <Compile Include="Interfaces\IPluginOperation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Configuration\UriHandlerExportProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="PluginBase.resx">
-      <DependentUpon>PluginBase.cs</DependentUpon>
+    <EmbeddedResource Include="Components\PluginLoader.resx">
+      <DependentUpon>PluginLoader.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PluginHost.resx">
-      <DependentUpon>PluginHost.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PluginRunner.resx">
+    <EmbeddedResource Include="Components\PluginRunner.resx">
       <DependentUpon>PluginRunner.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
@@ -157,6 +146,7 @@
       <Name>PA.Converters</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

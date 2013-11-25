@@ -7,12 +7,12 @@ namespace PA.Plugin
 {
     public class PluginItemEventArgs : EventArgs
     {
-        public PluginItem PluginItem { get; private set; }
+        public IPlugin Plugin { get; private set; }
 
-        public PluginItemEventArgs(PluginItem pi)
+        public PluginEventArgs(IPlugin pi)
             :base()
         {
-            this.PluginItem = pi;
+            this.Plugin = pi;
         }
 
         public static readonly PluginItemEventArgs Empty;

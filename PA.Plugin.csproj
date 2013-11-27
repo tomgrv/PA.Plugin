@@ -87,7 +87,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition">
+    <Reference Include="System.ComponentModel.Composition, Version=2010.2.11.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ComponentModel.Composition.2010.2.11.1\lib\net35\System.ComponentModel.Composition.dll</HintPath>
     </Reference>
     <Reference Include="System.configuration" />
@@ -110,7 +110,7 @@
     <Compile Include="Configuration\CompositionConfigurator.cs" />
     <Compile Include="Configuration\ExportProviders\UriHandlerExportProvider.cs" />
     <Compile Include="Configuration\Interfaces\IUriHandler.cs" />
-    <Compile Include="Event\PluginItemEventArgs.cs" />
+    <Compile Include="Event\PluginEventArgs.cs" />
     <Compile Include="Core\PluginManager.cs" />
     <Compile Include="Extensions\PluginExtensions.cs" />
     <Compile Include="Interfaces\IPluginAction.cs" />

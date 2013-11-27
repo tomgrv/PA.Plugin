@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PA.Plugin
 {
-    public class PluginItemEventArgs : EventArgs
+    public class PluginEventArgs : EventArgs
     {
         public IPlugin Plugin { get; private set; }
 
@@ -15,7 +15,7 @@ namespace PA.Plugin
             this.Plugin = pi;
         }
 
-        public static readonly PluginItemEventArgs Empty;
+        public static readonly PluginEventArgs Empty;
         
     }
 }

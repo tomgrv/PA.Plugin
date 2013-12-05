@@ -79,9 +79,13 @@ namespace PA.Components
 
                 this.CompositionContainer = PluginManager.GetContainer(x =>
                 {
+                    
+                    //x.With(new AssemblyCatalog(Assembly.GetAssembly(this.Parent.GetType())));
                     x.WithDirectory(this.Location);
                     x.With(new UriHandlerExportProvider(x.Catalog, true, this.Configuration));
+                    x.With(new ConfigurationCatalog(this.Configuration, x.Catalog));
                     x.With(new ConfigurationItemExportProvider(this.Configuration));
+
                 });
 
                 this.CompositionContainer.ComposeParts(this.Parent);

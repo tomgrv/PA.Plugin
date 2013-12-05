@@ -121,6 +121,7 @@
     <Compile Include="Components\PluginRunner.Designer.cs">
       <DependentUpon>PluginRunner.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IPluginIndex.cs" />
     <Compile Include="Interfaces\IPluginOperation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

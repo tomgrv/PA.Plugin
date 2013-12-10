@@ -93,18 +93,11 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\PluginCategoryAttribute.cs" />
     <Compile Include="Attributes\PluginDescriptionAttribute.cs" />
-    <Compile Include="Components\PluginLoader.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Components\PluginLoader.Designer.cs">
-      <DependentUpon>PluginLoader.cs</DependentUpon>
-    </Compile>
     <Compile Include="Configuration\Attributes\UriHandlerAttribute.cs" />
     <Compile Include="Configuration\Catalogs.cs" />
     <Compile Include="Configuration\CompositionConfigurator.cs" />
@@ -115,23 +108,9 @@
     <Compile Include="Extensions\PluginExtensions.cs" />
     <Compile Include="Interfaces\IPluginAction.cs" />
     <Compile Include="Interfaces\IPlugin.cs" />
-    <Compile Include="Components\PluginRunner.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Components\PluginRunner.Designer.cs">
-      <DependentUpon>PluginRunner.cs</DependentUpon>
-    </Compile>
     <Compile Include="Interfaces\IPluginIndex.cs" />
     <Compile Include="Interfaces\IPluginOperation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Components\PluginLoader.resx">
-      <DependentUpon>PluginLoader.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Components\PluginRunner.resx">
-      <DependentUpon>PluginRunner.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="PA.Plugin.nuspec" />

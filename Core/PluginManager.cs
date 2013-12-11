@@ -37,18 +37,17 @@ namespace PA.Plugin
             return null;
         }
 
-        public static T[] GetAttributes<T>(Type z)
+        public static T[] GetAttributes<T>(Type t)
             where T : Attribute            
         {
-            return z.GetCustomAttributes(typeof(T), true).OfType<T>().ToArray();
+            return t.GetCustomAttributes(typeof(T), true).OfType<T>().ToArray();
         }
 
-        public static T GetAttribute<T>(Type z)
+        public static T GetAttribute<T>(Type t)
             where T : Attribute
         {
-            return PluginManager.GetAttributes<T>(z).FirstOrDefault() ?? System.Activator.CreateInstance<T>();
+            return PluginManager.GetAttributes<T>(t).FirstOrDefault() ?? System.Activator.CreateInstance<T>();
         }
-
 
         public static CompositionContainer GetContainer(Action<CompositionConfigurator> configure)
         {

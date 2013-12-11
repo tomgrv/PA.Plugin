@@ -12,16 +12,44 @@ namespace PA.Plugin.Configuration
     {
         public ComposablePartCatalog Catalog { get { return this._catalog; } }
 
+        private List<ComposablePartCatalog> _backup;
         private AggregateCatalog _catalog;
         private List<ExportProvider> _exportProviders;
 
         public CompositionConfigurator()
         {
+            this._backup = new List<ComposablePartCatalog>();
             this._catalog = new AggregateCatalog();
             this._exportProviders = new List<ExportProvider>();
         }
 
+        public void Unload()
+        {
+            foreach (ComposablePartCatalog c in this._catalog.Catalogs)
+            {
+                this._backup.Add(c);
+            }
+
+            this._catalog.Catalogs.Clear();
+        }
+
+        public void Reload()
+        {
+            foreach (ComposablePartCatalog c in this._backup)
+            {
+                this._catalog.Catalogs.Add(c);
+            }
+
+            this._catalog.Catalogs.Clear();
+        }
+
         public void WithDirectory(string path)
+        {
+            DirectoryCatalog catalog = null;
+            this.WithDirectory(path, out catalog);
+        }
+
+        public void WithDirectory(string path, out DirectoryCatalog catalog)
         {
             if (!Path.IsPathRooted(path))
             {
@@ -35,7 +63,9 @@ namespace PA.Plugin.Configuration
                 }
             }
 
-            this.With(new DirectoryCatalog(path));
+            catalog = new DirectoryCatalog(path);
+
+            this.With(catalog);
         }
 
         public void With(ComposablePartCatalog catalog)

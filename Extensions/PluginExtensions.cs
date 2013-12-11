@@ -21,41 +21,21 @@ namespace PA.Plugin.Extensions
 
         public static Image GetImage<T>(this T p) where T : IPlugin
         {
-            Type t = p.GetType();
-
-            foreach (string ressource in t.Assembly.GetManifestResourceNames())
-            {
-                if (ressource.Contains(t.Name) || ressource.Contains(t.Namespace))
-                {
-                    Stream stream = t.Assembly.GetManifestResourceStream(ressource);
-
-                    try
-                    {
-                        return Bitmap.FromStream(stream);
-                    }
-                    catch
-                    {
-                        return null;
-                    }
-                }
-            }
-
-            return null;
+            return PluginManager.GetImage(p.GetType());
         }
 
         public static R GetAttribute<T,R>(this T p) 
             where T : IPlugin 
             where R : Attribute
         {
-            return p.GetAttributes<T, R>().FirstOrDefault() ?? System.Activator.CreateInstance<R>();
+            return PluginManager.GetAttribute<R>(typeof(T));
         }
 
         public static R[] GetAttributes<T, R>(this T p)
             where T : IPlugin
             where R : Attribute
-        {
-            object[] Attributes = p.GetType().GetCustomAttributes(typeof(R), true);
-            return Array.ConvertAll<object, R>(Attributes, a => (R)a).ToArray();
+        {            
+            return PluginManager.GetAttributes<R>(typeof(T));
         }
     }
 }

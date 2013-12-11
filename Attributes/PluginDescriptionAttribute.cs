@@ -12,6 +12,13 @@ namespace PA.Plugin
         public string Name { get; private set; }
         public IEnumerable<Type> TargetType { get; private set; }
 
+        public PluginDescriptionAttribute()
+            : base("")
+        {
+            this.TargetType = Type.EmptyTypes;
+            this.Name = null;
+        }
+
         public PluginDescriptionAttribute(string Description, string Rename)
             : base(Description)
         {
@@ -39,8 +46,6 @@ namespace PA.Plugin
             this.TargetType = target;
             this.Name = null;
         }
-
-       
     }
 
 

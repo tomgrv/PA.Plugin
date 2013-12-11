@@ -37,10 +37,22 @@ namespace PA.Plugin
             return null;
         }
 
+        public static T[] GetAttributes<T>(IPlugin p)
+           where T : Attribute
+        {
+            return p.GetType().GetCustomAttributes(typeof(T), true).OfType<T>().ToArray();
+        }
+
         public static T[] GetAttributes<T>(Type t)
             where T : Attribute            
         {
             return t.GetCustomAttributes(typeof(T), true).OfType<T>().ToArray();
+        }
+
+        public static T GetAttribute<T>(IPlugin p)
+           where T : Attribute
+        {
+            return PluginManager.GetAttributes<T>(p).FirstOrDefault() ?? System.Activator.CreateInstance<T>();
         }
 
         public static T GetAttribute<T>(Type t)

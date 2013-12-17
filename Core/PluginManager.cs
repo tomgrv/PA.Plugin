@@ -64,9 +64,7 @@ namespace PA.Plugin
         public static CompositionContainer GetContainer(Action<CompositionConfigurator> configure)
         {
             CompositionConfigurator cc = new CompositionConfigurator();
-
             configure(cc);
-
             return cc.GetContainer();
         }
 
@@ -80,7 +78,6 @@ namespace PA.Plugin
           where T : class
         {
             PluginManager.GetContainer(configure).ComposeParts(z);
-
         }
 
         public static void ComposeParts<T, R>(this T z, IEnumerable<R> parts)
@@ -109,11 +106,8 @@ namespace PA.Plugin
                     t is Type);
         }
 
-
-
         private static Type ComposablePartExportType<T>(ComposablePartDefinition part)
         {
-
             if (part.ExportDefinitions.Any(def =>
                 def.Metadata.ContainsKey("ExportTypeIdentity") && def.Metadata["ExportTypeIdentity"].Equals(typeof(T).FullName)))
             {

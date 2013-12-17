@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition.Primitives;
 using System.IO;
@@ -8,7 +9,7 @@ using System.Text;
 
 namespace PA.Plugin.Configuration
 {
-    public class CompositionConfigurator
+    public class CompositionConfigurator : IDisposable,IComponent
     {
         public ComposablePartCatalog Catalog { get { return this._catalog; } }
 
@@ -89,5 +90,23 @@ namespace PA.Plugin.Configuration
 
             return cc;
         }
+
+        #region IComponent
+
+        public void Dispose()
+        {
+            this._catalog.Dispose();
+
+            if (this.Disposed != null)
+            {
+                this.Disposed(this, EventArgs.Empty);
+            }
+        }
+
+        public event EventHandler Disposed;
+
+        public ISite Site { get; set;}
+      
+        #endregion
     }
 }

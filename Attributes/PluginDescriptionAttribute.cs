@@ -13,7 +13,7 @@ namespace PA.Plugin
         public IEnumerable<Type> TargetType { get; private set; }
 
         public PluginDescriptionAttribute()
-            : base("")
+            : base(null)
         {
             this.TargetType = Type.EmptyTypes;
             this.Name = null;

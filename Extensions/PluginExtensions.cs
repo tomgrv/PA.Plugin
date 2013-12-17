@@ -9,11 +9,9 @@ namespace PA.Plugin.Extensions
 {
     public static class PluginExtensions
     {
-       
-
         public static string GetDescription<T>(this T p) where T :  IPlugin
         {
-            return PluginManager.GetAttribute<PluginDescriptionAttribute>(p.GetType()).Description;
+            return PluginManager.GetAttribute<PluginDescriptionAttribute>(p.GetType()).Description ?? p.GetType().Name.ToString();
         }
 
         public static string GetCategory<T>(this T p) where T :  IPlugin

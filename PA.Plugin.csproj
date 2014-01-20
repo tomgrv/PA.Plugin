@@ -96,6 +96,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\common\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Attributes\PluginCategoryAttribute.cs" />
     <Compile Include="Attributes\PluginDescriptionAttribute.cs" />
     <Compile Include="Configuration\Attributes\UriHandlerAttribute.cs" />
@@ -103,13 +106,16 @@
     <Compile Include="Configuration\CompositionConfigurator.cs" />
     <Compile Include="Configuration\ExportProviders\UriHandlerExportProvider.cs" />
     <Compile Include="Configuration\Interfaces\IUriHandler.cs" />
+    <Compile Include="PluginBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PluginItem.cs" />
     <Compile Include="Event\PluginEventArgs.cs" />
     <Compile Include="Core\PluginManager.cs" />
     <Compile Include="Extensions\PluginExtensions.cs" />
     <Compile Include="Interfaces\IPluginAction.cs" />
     <Compile Include="Interfaces\IPlugin.cs" />
     <Compile Include="Interfaces\IPluginIndex.cs" />
-    <Compile Include="Interfaces\IPluginOperation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -15,7 +15,7 @@ namespace PA.Plugin
 {
     public static class PluginManager
     {
-        public static Image GetImage(Type  t) 
+        public static Image GetImage(Type t)
         {
             foreach (string ressource in t.Assembly.GetManifestResourceNames())
             {
@@ -44,7 +44,7 @@ namespace PA.Plugin
         }
 
         public static T[] GetAttributes<T>(Type t)
-            where T : Attribute            
+            where T : Attribute
         {
             return t.GetCustomAttributes(typeof(T), true).OfType<T>().ToArray();
         }
@@ -89,19 +89,13 @@ namespace PA.Plugin
             }
         }
 
-        [Obsolete]
-        public static IEnumerable<Type> GetExportedType<T>(this T z)
-         where T : CompositionContainer
-        {
-            return GetExportedTypes<T>(z);
-        }
-
-        public static IEnumerable<Type> GetExportedTypes<T>(this T z)
-         where T : CompositionContainer
+        public static IEnumerable<Type> GetExportedTypes<T, U>(this T z)
+            where T : CompositionContainer
+            where U : IPlugin
         {
             return z.Catalog.Parts
                 .Select(p =>
-                    ComposablePartExportType<T>(p))
+                    ComposablePartExportType<U>(p))
                 .Where(t =>
                     t is Type);
         }

@@ -113,7 +113,6 @@
     <Compile Include="Event\PluginEventArgs.cs" />
     <Compile Include="Core\PluginManager.cs" />
     <Compile Include="Extensions\PluginExtensions.cs" />
-    <Compile Include="Interfaces\IPluginAction.cs" />
     <Compile Include="Interfaces\IPlugin.cs" />
     <Compile Include="Interfaces\IPluginIndex.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

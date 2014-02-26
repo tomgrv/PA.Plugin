@@ -8,9 +8,9 @@ using System.Text;
 
 namespace PA.Plugin.Configuration
 {
-    public class UriSchemeExportProvider : WithLabelExportProvider<Uri>, IConfigurationProvider
+    public class UriSchemeLabelExportProvider : WithLabelExportProvider<Uri>, IConfigurationProvider
     {
-        public UriSchemeExportProvider(ComposablePartCatalog catalog, bool isThreadSafe, IConfigurationSource configurationSource)
+        public UriSchemeLabelExportProvider(ComposablePartCatalog catalog, bool isThreadSafe, IConfigurationSource configurationSource)
             : base(catalog, isThreadSafe, configurationSource,
                   label: u => u.Scheme,
                   validation: s => Uri.IsWellFormedUriString(s, UriKind.Absolute),
@@ -19,7 +19,7 @@ namespace PA.Plugin.Configuration
           
         }
 
-        public UriSchemeExportProvider(ComposablePartCatalog catalog, IConfigurationSource configurationSource)
+        public UriSchemeLabelExportProvider(ComposablePartCatalog catalog, IConfigurationSource configurationSource)
             : base(catalog, configurationSource,
                    label: u => u.Scheme,
                    validation: s => Uri.IsWellFormedUriString(s, UriKind.Absolute),

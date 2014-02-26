@@ -103,7 +103,7 @@
     <Compile Include="Attributes\PluginDescriptionAttribute.cs" />
     <Compile Include="Attributes\ExportWithLabelAttribute.cs" />
     <Compile Include="Configuration\CompositionConfigurator.cs" />
-    <Compile Include="ExportProviders\UriSchemeExportProvider.cs" />
+    <Compile Include="ExportProviders\UriSchemeLabelExportProvider.cs" />
     <Compile Include="Extensions\ContractExtensions.cs" />
     <Compile Include="Interfaces\IPluginLabel.cs" />
     <Compile Include="Interfaces\IPlugin_T.cs" />
@@ -133,10 +133,7 @@
       <Name>PA.Converters</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Configuration\Attributes\" />
-    <Folder Include="Configuration\Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -65,7 +65,7 @@ namespace PA.Plugin.Configuration
 
         private IPlugin<T> GetPartInstance(ImportDefinition definition, Type type, string configvalue)
         {
-            if (type.IsAssignableFrom(typeof(IPlugin<T>)))
+            if (typeof(IPlugin<T>).IsAssignableFrom(type))
             {
                 if (this.IsValid is Func<string, bool> ? this.IsValid(configvalue) : true)
                 {

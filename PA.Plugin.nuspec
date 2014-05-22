@@ -8,6 +8,6 @@
     <owners>$author$</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <copyright>© Perspective Automation 2013</copyright>
+    <copyright>© PA 2014</copyright>
   </metadata>
 </package>

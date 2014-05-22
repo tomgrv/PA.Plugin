@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PA.Plugin.Configuration
+namespace PA.Plugin
 {
-    public interface IUriHandler
+    public interface IPlugin<T> 
+        where T : class
     {
-        Uri Uri { get; }
+        T Value { get; }
     }
 }

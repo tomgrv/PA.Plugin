@@ -80,7 +80,7 @@ namespace PA.Plugin.Configuration
                         definition.IsRecomposable,
                         false);
 
-                    Lazy<Type> partType = this.Catalog.Parts.ExportTypes(newDefinition, typeof(T)).FirstOrDefault();
+                    Lazy<Type> partType = this.Catalog.Parts.ExportTypes<ComposablePartDefinition>(newDefinition).FirstOrDefault();
                     if (partType is Lazy<Type>)
                     {
                         return value.ParseTo<IPlugin<T>, T>(partType.Value);

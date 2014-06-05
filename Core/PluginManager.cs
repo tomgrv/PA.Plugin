@@ -68,25 +68,47 @@ namespace PA.Plugin
             return cc.GetContainer();
         }
 
-        public static void Compose<T>(this T z, Action<CompositionConfigurator> configure)
+        public static IEnumerable<string> Compose<T>(this T z, Action<CompositionConfigurator> configure)
            where T : class
         {
-            PluginManager.GetContainer(configure).ComposeParts(z);
+            List<string> messages = new List<string>();
+
+            try
+            {
+                PluginManager.GetContainer(configure).ComposeParts(z);
+            }
+            catch (ChangeRejectedException cre)
+            {
+                messages.Add(cre.ToString());
+            }
+
+            return messages;
         }
 
-        public static void Compose<T>(this Queue<T> z, Action<CompositionConfigurator> configure)
+        public static IEnumerable<string> Compose<T>(this Queue<T> z, Action<CompositionConfigurator> configure)
           where T : class
         {
-            PluginManager.GetContainer(configure).ComposeParts(z);
+            return PluginManager.GetContainer(configure).ComposeParts(z);
         }
 
-        public static void ComposeParts<T, R>(this T z, IEnumerable<R> parts)
+        public static IEnumerable<string> ComposeParts<T, R>(this T z, IEnumerable<R> parts)
             where T : CompositionContainer
         {
+            List<string> messages = new List<string>();
+
             foreach (R part in parts.Distinct())
             {
-                z.ComposeParts(part);
+                try
+                {
+                    z.ComposeParts(part);
+                }
+                catch(ChangeRejectedException cre)
+                {
+                    messages.Add(cre.ToString());
+                }
             }
+
+            return messages;
         }
 
         public static IEnumerable<Type> GetExportedTypes<T, U>(this T z)

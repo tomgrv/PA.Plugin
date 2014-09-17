@@ -132,7 +132,6 @@
   <ItemGroup>
     <None Include="PA.Plugin.nuspec" />
     <None Include="PA.Toolbox.snk" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PA.Configuration\PA.Configuration.csproj">

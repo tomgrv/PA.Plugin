@@ -24,6 +24,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <RestorePackages>true</RestorePackages>
     <ReleaseVersion>4.4.1</ReleaseVersion>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

@@ -12,11 +12,13 @@ using PA.Converters.Extensions;
 using System.Runtime.Serialization;
 using System.Runtime.InteropServices;
 using PA.Plugin.Extensions;
+using System.Security.AccessControl;
 
 namespace PA.Plugin.Configuration
 {
     public class WithLabelExportProvider<T> : CatalogExportProvider, IConfigurationProvider
         where T : class
+         
     {
         public IConfigurationSource Source { get; private set; }
 
@@ -56,7 +58,7 @@ namespace PA.Plugin.Configuration
             lock (this.Source)
             {
                 foreach (Export e in this.GetConfigurationItems(definition)
-                    .GetExports<IPlugin<T>>(definition, (t, s) => this.GetPartInstance(definition, t, s)))
+                                          .GetExports<IPlugin<T>>((t, s) => this.GetPartInstance(definition, t, s)))
                 {
                     yield return e;
                 }
@@ -67,21 +69,21 @@ namespace PA.Plugin.Configuration
         {
             if (typeof(IPlugin<T>).IsAssignableFrom(type))
             {
-                if (this.IsValid is Func<string, bool> ? this.IsValid(configvalue) : true)
+                if (this.IsValid != null ? this.IsValid(configvalue) : true)
                 {
-                    T value = this.GetInstance is Func<string, T> ? this.GetInstance(configvalue) : configvalue.ParseTo<T, string>();
+                    T value = this.GetInstance != null ? this.GetInstance(configvalue) : configvalue.ParseTo<T, string>();
 
                     string contract = ContractExtensions.GetTypeIdentity(type);
 
                     ImportDefinition newDefinition = new ImportDefinition(
-                        (d) => ValidateExport(d, contract, this.GetLabel is Func<T, string> ? this.GetLabel(value) : value.ToString()),
+                        (d) => ValidateExport(d, contract, this.GetLabel != null ? this.GetLabel(value) : value.ToString()),
                         type.FullName,
                         ImportCardinality.ExactlyOne,
                         definition.IsRecomposable,
                         false);
 
                     Lazy<Type> partType = this.Catalog.Parts.ExportTypes<ComposablePartDefinition>(newDefinition).FirstOrDefault();
-                    if (partType is Lazy<Type>)
+                    if (partType != null)
                     {
                         return value.ParseTo<IPlugin<T>, T>(partType.Value);
                     }

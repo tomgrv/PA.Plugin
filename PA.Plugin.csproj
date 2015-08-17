@@ -100,12 +100,10 @@
     <Compile Include="Attributes\PluginDescriptionAttribute.cs" />
     <Compile Include="Attributes\ExportWithLabelAttribute.cs" />
     <Compile Include="Configuration\CompositionConfigurator.cs" />
-    <Compile Include="ExportProviders\UriSchemeLabelExportProvider.cs" />
     <Compile Include="Extensions\CloneExtension.cs" />
     <Compile Include="Extensions\ContractExtensions.cs" />
     <Compile Include="Interfaces\IPluginLabel.cs" />
     <Compile Include="Interfaces\IPlugin_T.cs" />
-    <Compile Include="ExportProviders\WithLabelExportProvider_T.cs" />
     <Compile Include="PluginBase.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -116,6 +114,8 @@
     <Compile Include="Interfaces\IPlugin.cs" />
     <Compile Include="Interfaces\IPluginIndex.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Configuration\UriSchemeLabelExportProvider.cs" />
+    <Compile Include="Configuration\WithLabelExportProvider_T.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PA.Plugin.nuspec" />

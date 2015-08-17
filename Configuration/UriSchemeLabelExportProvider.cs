@@ -14,18 +14,13 @@ namespace PA.Plugin.Configuration
             : base(catalog, isThreadSafe, configurationSource,
                   label: u => u.Scheme,
                   validation: s => Uri.IsWellFormedUriString(s, UriKind.Absolute),
-                  creation: s => new Uri(s))
-        {
-          
-        }
-
+                  creation: s => new Uri(s)) {}
+       
         public UriSchemeLabelExportProvider(ComposablePartCatalog catalog, IConfigurationSource configurationSource)
             : base(catalog, configurationSource,
                    label: u => u.Scheme,
                    validation: s => Uri.IsWellFormedUriString(s, UriKind.Absolute),
-                   creation: s => new Uri(s))
-        {
-           
-        }
+                creation: s => new Uri(s)) {}
+        
     }
 }

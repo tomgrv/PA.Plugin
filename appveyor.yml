@@ -1,0 +1,37 @@
+version: 'build.{build}'
+
+branches:
+
+  # blacklist
+  except:
+    - gh-pages
+
+image: Visual Studio 2013
+configuration: Release
+platform: Any CPU
+
+assembly_info:
+  patch: false
+  
+before_build:
+- cmd: nuget restore PA.TileList.sln
+
+build:
+  project: PA.TileList.sln			# path to Visual Studio solution or project
+  publish_nuget: false				# package projects with .nuspec files and push to artifacts
+  publish_nuget_symbols: false     	# generate and publish NuGet symbol packages
+  include_nuget_references: false	# add -IncludeReferencedProjects option while packaging NuGet artifacts
+  verbosity: normal
+  
+artifacts:
+- path: '**/PA.TileList.*.nupkg'
+
+deploy:
+- provider: Environment
+  name: nuget.org
+  on:
+    branch: master
+- provider: Environment
+  name: github.com
+  on:
+    branch: master

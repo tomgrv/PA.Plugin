@@ -1,0 +1,96 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Windows Desktop
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7533DCCC-1456-4257-B295-7AA16A860F6F}"
+	ProjectSection(SolutionItems) = preProject
+		common\GlobalAssemblyInfo.cs = common\GlobalAssemblyInfo.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D0194E25-483A-404A-B7C2-1E9AB4E88143}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Continuous Integration", "Continuous Integration", "{2501E72D-292E-4A13-B382-ACF34EA8CC06}"
+	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
+		GitVersion.yml = GitVersion.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B4FACE3-DDB3-4EAA-985A-9DE4AAC34A91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B4FACE3-DDB3-4EAA-985A-9DE4AAC34A91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B4FACE3-DDB3-4EAA-985A-9DE4AAC34A91}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5B4FACE3-DDB3-4EAA-985A-9DE4AAC34A91}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5B4FACE3-DDB3-4EAA-985A-9DE4AAC34A91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B4FACE3-DDB3-4EAA-985A-9DE4AAC34A91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B4FACE3-DDB3-4EAA-985A-9DE4AAC34A91}.Release|x64.ActiveCfg = Release|Any CPU
+		{5B4FACE3-DDB3-4EAA-985A-9DE4AAC34A91}.Release|x86.ActiveCfg = Release|Any CPU
+		{A16E749B-7556-41BD-A9B9-253B3253578C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A16E749B-7556-41BD-A9B9-253B3253578C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A16E749B-7556-41BD-A9B9-253B3253578C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A16E749B-7556-41BD-A9B9-253B3253578C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A16E749B-7556-41BD-A9B9-253B3253578C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A16E749B-7556-41BD-A9B9-253B3253578C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A16E749B-7556-41BD-A9B9-253B3253578C}.Release|x64.ActiveCfg = Release|Any CPU
+		{A16E749B-7556-41BD-A9B9-253B3253578C}.Release|x86.ActiveCfg = Release|Any CPU
+		{2D187F72-216C-40D5-B9DD-FFB52F7B3AAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D187F72-216C-40D5-B9DD-FFB52F7B3AAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D187F72-216C-40D5-B9DD-FFB52F7B3AAF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2D187F72-216C-40D5-B9DD-FFB52F7B3AAF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2D187F72-216C-40D5-B9DD-FFB52F7B3AAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D187F72-216C-40D5-B9DD-FFB52F7B3AAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D187F72-216C-40D5-B9DD-FFB52F7B3AAF}.Release|x64.ActiveCfg = Release|Any CPU
+		{2D187F72-216C-40D5-B9DD-FFB52F7B3AAF}.Release|x86.ActiveCfg = Release|Any CPU
+		{B64BCAC4-3BD8-414D-8F5C-F55728FA109E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B64BCAC4-3BD8-414D-8F5C-F55728FA109E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B64BCAC4-3BD8-414D-8F5C-F55728FA109E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B64BCAC4-3BD8-414D-8F5C-F55728FA109E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B64BCAC4-3BD8-414D-8F5C-F55728FA109E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B64BCAC4-3BD8-414D-8F5C-F55728FA109E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B64BCAC4-3BD8-414D-8F5C-F55728FA109E}.Release|x64.ActiveCfg = Release|Any CPU
+		{B64BCAC4-3BD8-414D-8F5C-F55728FA109E}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		UpdateAssemblyVersion = True
+		UpdateAssemblyFileVersion = False
+		UpdateAssemblyInfoVersion = False
+		AssemblyVersionSettings = IncrementOnDemandWithReset.IncrementOnDemandWithReset.DeltaDayStamp.TimeStamp
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.VersionControlPolicy = $1
+		$1.inheritsSet = Mono
+		$0.DotNetNamingPolicy = $2
+		$2.DirectoryNamespaceAssociation = PrefixedHierarchical
+		$2.ResourceNamePolicy = MSBuild
+		$0.StandardHeader = $3
+		$3.Text = @\n${FileName}\n \nAuthor:\n      ${AuthorName} <${AuthorEmail}>\n\nCopyright (c) ${Year} ${CopyrightHolder}\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the "Software"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.
+		$3.IncludeInNewFiles = True
+		$0.NameConventionPolicy = $4
+		$4.Rules = $5
+		$5.NamingRule = $30
+		$30.AffectedEntity = None
+		$30.VisibilityMask = VisibilityMask
+		$30.NamingStyle = None
+		$30.IncludeInstanceMembers = True
+		$30.IncludeStaticEntities = True
+		version = 
+	EndGlobalSection
+EndGlobal

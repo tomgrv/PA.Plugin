@@ -261,3 +261,4 @@ __pycache__/
 /packages/
 /.history/
 /MigrationBackup/
+gitversion.json

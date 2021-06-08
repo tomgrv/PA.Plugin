@@ -8,13 +8,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		common\GlobalAssemblyInfo.cs = common\GlobalAssemblyInfo.cs
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D0194E25-483A-404A-B7C2-1E9AB4E88143}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Continuous Integration", "Continuous Integration", "{2501E72D-292E-4A13-B382-ACF34EA8CC06}"
 	ProjectSection(SolutionItems) = preProject
 		appveyor.yml = appveyor.yml
@@ -92,11 +85,11 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		AssemblyVersionSettings = IncrementOnDemandWithReset.IncrementOnDemandWithReset.DeltaDayStamp.TimeStamp
-		UpdateAssemblyInfoVersion = False
-		UpdateAssemblyFileVersion = False
-		UpdateAssemblyVersion = True
 		SolutionGuid = {963BB92E-D360-4ADF-BC19-101EA20F27BF}
+		UpdateAssemblyVersion = True
+		UpdateAssemblyFileVersion = False
+		UpdateAssemblyInfoVersion = False
+		AssemblyVersionSettings = IncrementOnDemandWithReset.IncrementOnDemandWithReset.DeltaDayStamp.TimeStamp
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0

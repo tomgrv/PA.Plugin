@@ -39,10 +39,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IFilePlugin.cs" />
@@ -70,7 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="GitVersion.MsBuild">
-      <Version>5.6.10</Version>
+      <Version>5.6.3</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

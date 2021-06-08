@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\GitVersionTask.5.5.0\build\GitVersionTask.props" Condition="Exists('..\packages\GitVersionTask.5.5.0\build\GitVersionTask.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -14,8 +15,10 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <TargetFrameworkProfile />
-    <ReleaseVersion></ReleaseVersion>
-    <NuGetPackageImportStamp>e7def96d</NuGetPackageImportStamp>
+    <ReleaseVersion>
+    </ReleaseVersion>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,8 +46,27 @@
     <AssemblyOriginatorKeyFile>PA.Toolbox.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="INIFileParser, Version=2.2.2.0, Culture=neutral, PublicKeyToken=79af7b307b65cf3c, processorArchitecture=MSIL">
+      <HintPath>..\packages\ini-parser.2.2.2\lib\net20\INIFileParser.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Security.3.2.3.0\lib\net45\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="PA.Configuration, Version=4.9.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PA.Configuration.4.9.1\lib\net45\PA.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="PA.Converters, Version=4.7.4.0, Culture=neutral, PublicKeyToken=efe7f84d28b0579c, processorArchitecture=MSIL">
+      <HintPath>..\packages\PA.Converters.4.7.4\lib\portable-net45+win+MonoAndroid10+xamarinios10+MonoTouch10\PA.Converters.dll</HintPath>
+    </Reference>
+    <Reference Include="PA.Utilities.AssemblyMetadata, Version=6.0.2.0, Culture=neutral, PublicKeyToken=efe7f84d28b0579c, processorArchitecture=MSIL">
+      <HintPath>..\packages\PA.Utilities.AssemblyMetadata.6.0.2\lib\net45\PA.Utilities.AssemblyMetadata.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLCrypto, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d4421c8a4786956c, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCLCrypto.1.0.2.15130\lib\net40-Client\PCLCrypto.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
@@ -53,6 +75,9 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Validation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=2fc06f0d701809a7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Validation.2.0.6.15003\lib\portable-net40+sl50+win+wpa81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\Validation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\common\GlobalAssemblyInfo.cs">
@@ -143,10 +168,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PA.Converters\PA.Converters.csproj">
-      <Project>{B09F91A1-DF25-4DAE-8E45-40DF0FA9334F}</Project>
-      <Name>PA.Converters</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PA.Plugin.Operations\PA.Plugin.Operations.csproj">
       <Project>{AC454838-BC18-4852-9EAA-1D2E4E72F711}</Project>
       <Name>PA.Plugin.Operations</Name>
@@ -155,12 +176,9 @@
       <Project>{557ACE88-A58E-48AB-B7CF-07925CA98530}</Project>
       <Name>PA.Plugin</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PA.ConfigurationProvider\PA.ConfigurationProvider.csproj">
-      <Project>{40FA1F2A-3B4E-470B-87CA-D8B3792F3E8A}</Project>
-      <Name>PA.ConfigurationProvider</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="PA.Plugin.Components.nuspec" />
     <None Include="PA.Toolbox.snk" />
     <None Include="packages.config" />
@@ -168,7 +186,16 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
-  <Import Project="..\packages\GitVersionTask.2.0.1\Build\GitVersionTask.targets" Condition="Exists('..\packages\GitVersionTask.2.0.1\Build\GitVersionTask.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\GitVersionTask.5.5.0\build\GitVersionTask.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\GitVersionTask.5.5.0\build\GitVersionTask.props'))" />
+    <Error Condition="!Exists('..\packages\GitVersionTask.5.5.0\build\GitVersionTask.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\GitVersionTask.5.5.0\build\GitVersionTask.targets'))" />
+    <Error Condition="!Exists('..\packages\PA.Utilities.AssemblyMetadata.6.0.2\Build\PA.Utilities.AssemblyMetadata.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PA.Utilities.AssemblyMetadata.6.0.2\Build\PA.Utilities.AssemblyMetadata.targets'))" />
+  </Target>
+  <Import Project="..\packages\GitVersionTask.5.5.0\build\GitVersionTask.targets" Condition="Exists('..\packages\GitVersionTask.5.5.0\build\GitVersionTask.targets')" />
+  <Import Project="..\packages\PA.Utilities.AssemblyMetadata.6.0.2\Build\PA.Utilities.AssemblyMetadata.targets" Condition="Exists('..\packages\PA.Utilities.AssemblyMetadata.6.0.2\Build\PA.Utilities.AssemblyMetadata.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

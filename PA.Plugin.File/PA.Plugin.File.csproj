@@ -6,6 +6,7 @@
     <ReleaseVersion>5.0.0</ReleaseVersion>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
      <PackOnBuild>true</PackOnBuild>
+     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\common\GlobalAssemblyInfo.cs">
@@ -13,17 +14,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PA.Plugin.Operations\PA.Plugin.Operations.csproj"/>
-    <ProjectReference Include="..\PA.Plugin\PA.Plugin.csproj"/>
+    <ProjectReference Include="..\PA.Plugin.Operations\PA.Plugin.Operations.csproj" />
+    <ProjectReference Include="..\PA.Plugin\PA.Plugin.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="GitVersion.MsBuild" Version="5.6.10">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="System.ComponentModel.Composition" Version="5.0.0"/>
+    <PackageReference Include="System.ComponentModel.Composition" Version="5.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Interfaces\IPluginExporter.cs"/>
+    <Compile Remove="Interfaces\IPluginExporter.cs" />
   </ItemGroup>
 </Project>

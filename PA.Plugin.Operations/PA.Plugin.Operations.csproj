@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <OutputType>Library</OutputType>
@@ -12,6 +12,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>PA.Toolbox.snk</AssemblyOriginatorKeyFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\common\GlobalAssemblyInfo.cs">
@@ -30,20 +31,20 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PA.Plugin\PA.Plugin.csproj"/>
+    <ProjectReference Include="..\PA.Plugin\PA.Plugin.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Common.Logging" Version="3.4.1"/>
+    <PackageReference Include="Common.Logging" Version="3.4.1" />
     <PackageReference Include="GitVersion.MsBuild" Version="5.6.10">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Quartz" Version="3.3.2"/>
-    <PackageReference Include="System.ComponentModel.Composition" Version="5.0.0"/>
+    <PackageReference Include="Quartz" Version="3.3.2" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="5.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Core\Context.cs"/>
-    <Compile Remove="Core\DataMap.cs"/>
-    <Compile Remove="Events\RunCompletedEventArgs.cs"/>
+    <Compile Remove="Core\Context.cs" />
+    <Compile Remove="Core\DataMap.cs" />
+    <Compile Remove="Events\RunCompletedEventArgs.cs" />
   </ItemGroup>
 </Project>

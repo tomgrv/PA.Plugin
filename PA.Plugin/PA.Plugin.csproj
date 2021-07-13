@@ -31,6 +31,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>PA.Toolbox.snk</AssemblyOriginatorKeyFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\common\GlobalAssemblyInfo.cs">
@@ -45,19 +46,19 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="ini-parser" Version="3.4.0"/>
+    <PackageReference Include="ini-parser" Version="3.4.0" />
     <PackageReference Include="PA.Configuration" Version="5.0.0-beta.1+1"></PackageReference>
-    <PackageReference Include="PA.Converters" Version="4.7.4"/>
-    <PackageReference Include="PA.Utilities.AssemblyMetadata" Version="6.1.0"/>
-    <PackageReference Include="System.ComponentModel.Composition" Version="5.0.0"/>
-    <PackageReference Include="System.Drawing.Common" Version="5.0.2"/>
-    <PackageReference Include="Validation" Version="2.4.22"/>
+    <PackageReference Include="PA.Converters" Version="4.7.4" />
+    <PackageReference Include="PA.Utilities.AssemblyMetadata" Version="6.1.0" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="5.0.0" />
+    <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
+    <PackageReference Include="Validation" Version="2.4.22" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Attributes\PluginAdressableAttribute.cs"/>
-    <Compile Remove="Attributes\PluginDataAttribute.cs"/>
-    <Compile Remove="Attributes\PluginSchemeAttribute.cs"/>
-    <Compile Remove="Configuration\Configurable.cs"/>
-    <Compile Remove="Configuration\ConfigurableExportProvider.cs"/>
+    <Compile Remove="Attributes\PluginAdressableAttribute.cs" />
+    <Compile Remove="Attributes\PluginDataAttribute.cs" />
+    <Compile Remove="Attributes\PluginSchemeAttribute.cs" />
+    <Compile Remove="Configuration\Configurable.cs" />
+    <Compile Remove="Configuration\ConfigurableExportProvider.cs" />
   </ItemGroup>
 </Project>

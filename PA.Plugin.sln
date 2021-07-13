@@ -14,13 +14,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Continuous Integration", "C
 		GitVersion.yml = GitVersion.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PA.Plugin", "PA.Plugin\PA.Plugin.csproj", "{557ACE88-A58E-48AB-B7CF-07925CA98530}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PA.Plugin", "PA.Plugin\PA.Plugin.csproj", "{557ACE88-A58E-48AB-B7CF-07925CA98530}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PA.Plugin.Components", "PA.Plugin.Components\PA.Plugin.Components.csproj", "{7DCE837C-CCAC-47D3-BD8F-CFAFEA09CEAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PA.Plugin.Components", "PA.Plugin.Components\PA.Plugin.Components.csproj", "{7DCE837C-CCAC-47D3-BD8F-CFAFEA09CEAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PA.Plugin.File", "PA.Plugin.File\PA.Plugin.File.csproj", "{12CB506D-BCF9-4EC0-BA3F-3050CBF4BFA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PA.Plugin.File", "PA.Plugin.File\PA.Plugin.File.csproj", "{12CB506D-BCF9-4EC0-BA3F-3050CBF4BFA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PA.Plugin.Operations", "PA.Plugin.Operations\PA.Plugin.Operations.csproj", "{AC454838-BC18-4852-9EAA-1D2E4E72F711}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PA.Plugin.Operations", "PA.Plugin.Operations\PA.Plugin.Operations.csproj", "{AC454838-BC18-4852-9EAA-1D2E4E72F711}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,8 +34,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{557ACE88-A58E-48AB-B7CF-07925CA98530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{557ACE88-A58E-48AB-B7CF-07925CA98530}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{557ACE88-A58E-48AB-B7CF-07925CA98530}.Debug|x64.ActiveCfg = Debug|x64
-		{557ACE88-A58E-48AB-B7CF-07925CA98530}.Debug|x64.Build.0 = Debug|x64
+		{557ACE88-A58E-48AB-B7CF-07925CA98530}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{557ACE88-A58E-48AB-B7CF-07925CA98530}.Debug|x64.Build.0 = Debug|Any CPU
 		{557ACE88-A58E-48AB-B7CF-07925CA98530}.Debug|x86.ActiveCfg = Debug|x86
 		{557ACE88-A58E-48AB-B7CF-07925CA98530}.Debug|x86.Build.0 = Debug|x86
 		{557ACE88-A58E-48AB-B7CF-07925CA98530}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -85,11 +85,11 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {963BB92E-D360-4ADF-BC19-101EA20F27BF}
-		UpdateAssemblyVersion = True
-		UpdateAssemblyFileVersion = False
-		UpdateAssemblyInfoVersion = False
 		AssemblyVersionSettings = IncrementOnDemandWithReset.IncrementOnDemandWithReset.DeltaDayStamp.TimeStamp
+		UpdateAssemblyInfoVersion = False
+		UpdateAssemblyFileVersion = False
+		UpdateAssemblyVersion = True
+		SolutionGuid = {963BB92E-D360-4ADF-BC19-101EA20F27BF}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0

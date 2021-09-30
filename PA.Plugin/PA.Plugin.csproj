@@ -46,7 +46,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="ini-parser" Version="3.4.0" />
     <PackageReference Include="PA.Configuration" Version="5.0.0-beta.1+1"></PackageReference>
     <PackageReference Include="PA.Converters" Version="4.7.4" />
     <PackageReference Include="PA.Utilities.AssemblyMetadata" Version="6.1.0" />

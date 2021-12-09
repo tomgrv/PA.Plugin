@@ -16,21 +16,21 @@ namespace PA.Plugin
             public abstract void Dispose();
         }
 
-        class AsyncWrapper<T, U> : AsyncWrapper
-            where T : IPluginOperation, ICloneable
+        class AsyncWrapper<T> : AsyncWrapper
+            where T : IActionPlugin, ICloneable
         {
             private T p;
-            private U o;
+            private IDictionary<string, object> contextData;
 
-            public AsyncWrapper(T p, U o)
+            public AsyncWrapper(T p, IDictionary<string, object> contextData)
             {
-                this.p = (T) p.Clone();
-                this.o = o;
+                this.p = (T)p.Clone();
+                this.contextData = contextData;
             }
 
             public override object Execute()
             {
-                return this.p.Execute<T>(o) as object;
+                return this.p.Execute(contextData) as object;
             }
 
             #region IDisposable Membres
@@ -63,10 +63,10 @@ namespace PA.Plugin
         [Category("Plugin Management")]
         public bool ContinueOnError { get; set; }
 
-        public void RunAsync<T, U>(T p, U args)
-            where T : IPluginOperation, ICloneable
+        public void RunAsync<T>(T p, IDictionary<string, object> contextData)
+            where T : IActionPlugin, ICloneable
         {
-            this.DelayedCalls.Enqueue(new AsyncWrapper<T, U>(p, args));
+            this.DelayedCalls.Enqueue(new AsyncWrapper<T>(p, contextData));
             this.RunNext();
         }
 

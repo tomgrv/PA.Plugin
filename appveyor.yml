@@ -1,37 +1,44 @@
-version: 'build.{build}'
-
 branches:
+ # whitelist
 
   # blacklist
   except:
+    - develop
     - gh-pages
 
-image: Visual Studio 2013
+image: Visual Studio 2019
 configuration: Release
 platform: Any CPU
+skip_tags: true
 
 assembly_info:
   patch: false
+
+install:
+  - choco install gitversion.portable -pre -y
   
 before_build:
-- cmd: nuget restore PA.TileList.sln
+- ps: gitversion /l console /output buildserver /updateAssemblyInfo
+- cmd: nuget restore PA.Plugin.sln
 
 build:
-  project: PA.TileList.sln			# path to Visual Studio solution or project
+  project: PA.Plugin.sln			# path to Visual Studio solution or project
   publish_nuget: false				# package projects with .nuspec files and push to artifacts
-  publish_nuget_symbols: false     	# generate and publish NuGet symbol packages
-  include_nuget_references: false	# add -IncludeReferencedProjects option while packaging NuGet artifacts
+  publish_nuget_symbols: true     	# generate and publish NuGet symbol packages
+  include_nuget_references: true	# add -IncludeReferencedProjects option while packaging NuGet artifacts
   verbosity: normal
-  
+
+test: off
+
 artifacts:
-- path: '**/PA.TileList.*.nupkg'
+- path: '**/PA.Plugin.*.nupkg'
 
 deploy:
 - provider: Environment
-  name: nuget.org
+  name: https://www.nuget.org/profiles/tomgrv
   on:
     branch: master
 - provider: Environment
-  name: github.com
+  name: https://github.com/tomgrv
   on:
     branch: master

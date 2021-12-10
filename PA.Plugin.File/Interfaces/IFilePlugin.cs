@@ -5,7 +5,7 @@ using PA.Plugin.Operations.Interfaces;
 namespace PA.Plugin.File.Interfaces
 {
     [InheritedExport]
-    public interface IFilePlugin : IPlugin, IJobPlugin
+    public interface IFilePlugin : IPlugin, IActionPlugin
     {
         FileInfo File { get; }
     }

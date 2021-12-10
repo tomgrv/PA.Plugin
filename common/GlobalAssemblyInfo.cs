@@ -7,8 +7,8 @@ using System.Reflection;
 [assembly: AssemblyConfiguration("Release")]
 #endif
 
-[assembly: AssemblyCompany("PerspicApps")]
-[assembly: AssemblyProduct("PA.TileList")]
-[assembly: AssemblyCopyright("(c) PA 2015")]
+[assembly: AssemblyCompany("Perspikapps")]
+[assembly: AssemblyProduct("PA.Plugin")]
+[assembly: AssemblyCopyright("(c) Perspikapps 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

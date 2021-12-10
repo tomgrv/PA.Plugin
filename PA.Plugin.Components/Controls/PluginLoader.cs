@@ -11,9 +11,9 @@ using System.IO;
 using System.Reflection;
 using PA.Plugin;
 using System.Diagnostics;
-using PA.ConfigurationProvider;
 using PA.Plugin.Configuration;
 using PA.Plugin.Extensions;
+using PA.Configuration;
 
 namespace PA.Plugin.Components.Controls
 {

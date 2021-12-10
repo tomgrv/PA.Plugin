@@ -259,3 +259,6 @@ paket-files/
 __pycache__/
 *.pyc
 /packages/
+/.history/
+/MigrationBackup/
+gitversion.json

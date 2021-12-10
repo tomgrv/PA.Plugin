@@ -1,0 +1,48 @@
+name: dotnet package
+
+on: [push]
+
+env:
+  DOTNET_VERSION: '5.0.x'
+  REPOSITORY_URL: 'https://nuget.pkg.github.com/${{github.repository_owner}}/index.json'
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup .NET Core SDK ${{ env.DOTNET_VERSION }}
+        uses: actions/setup-dotnet@v1.7.2
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+          source-url: ${{ env.REPOSITORY_URL }}
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - uses: actions/cache@v2
+        with:
+          path: ~/.nuget/packages
+          # Look to see if there is a cache hit for the corresponding requirements file
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+      - name: Test
+        run: dotnet test --logger trx --results-directory "TestResults"
+      - name: Upload dotnet test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: dotnet-results
+          path: TestResults
+          # Use always() to always run this step to publish test results when there are test failures
+        if: ${{ always() }}
+      - name: Create packages
+        run: dotnet pack --configuration Release --output .
+      - name: Publish packages to GPR
+        run: dotnet nuget push *.nupkg --source ${{ env.REPOSITORY_URL }} --api-key ${{ secrets.GITHUB_TOKEN }}

@@ -5,7 +5,7 @@ using PA.Plugin.File;
 
 namespace PA.Plugin.File.Interfaces
 {
-    public interface IPluginImporter : IFilePlugin
+    public interface IFileImporterPlugin : IFilePlugin
     {
         object Load(string Filename);
     }

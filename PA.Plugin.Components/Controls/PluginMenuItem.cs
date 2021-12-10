@@ -125,11 +125,11 @@ namespace PA.Plugin.Components.Controls
         #region IPartImportsSatisfiedNotification Members
 
         [ImportMany(AllowRecomposition = true)]
-        protected virtual IEnumerable<IJobPlugin> Imports { get; set; }
+        protected virtual IEnumerable<IActionPlugin> Imports { get; set; }
 
         public virtual void OnImportsSatisfied()
         {
-            this.BuildWithType<IJobPlugin>();
+            this.BuildWithType<IActionPlugin>();
         }
 
         #endregion
